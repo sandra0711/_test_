@@ -2,7 +2,7 @@ const { Box } = require('../Box.js');
 const { ShippingContainer } = require('../ShippingContainer.js');
 
 describe('ShippingContainer', () => {
-  let boxes = [];
+  // let boxes = [];
   let shippingContainer;
   beforeEach(() => {
     boxes = [new Box({ weight: 300 }), new Box({ weight: 100 })];
@@ -28,6 +28,7 @@ describe('ShippingContainer', () => {
     });
 
     it('У `ShippingContainer` есть атрибут boxes', () => {
+      console.log(shippingContainer.boxes);
       expect(shippingContainer.boxes).toEqual(boxes);
     });
 
@@ -45,7 +46,7 @@ describe('ShippingContainer', () => {
   // PENDING смотри Release 1 в README.md
   // =========
 
-  xdescribe('👇Тесты на работу с атрибутом boxes у `ShippingContainer`', () => {
+  describe('👇Тесты на работу с атрибутом boxes у `ShippingContainer`', () => {
     describe('📦метод класса currentWeight у `ShippingContainer`', () => {
       describe('когда ShippingContainer пустой', () => {
         let emptyShippingContainer;
@@ -65,6 +66,7 @@ describe('ShippingContainer', () => {
 
       describe('когда в `ShippingContainer` есть boxes', () => {
         it('метод класса currentWeight возвращает общий вес всех boxes ', () => {
+          
           expect(shippingContainer.currentWeight()).toEqual(400);
         });
       });
