@@ -1,38 +1,14 @@
-class VideoGame {
+const {Good} = require('./goods')
+class VideoGame extends Good {
   constructor(options = {}) {
-    this.platform = options.platform;
-    this.title = options.title;
+    super({ title: options.title }),
+      this.platform = options.platform;
     this.developer = options.developer;
     this.genre = options.genre;
   }
 
-  isAvailable() {
-    return !this.isCheckedOut();
-  }
-
-  checkout() {
-    this.checkedOut = true;
-  }
-
-  isCheckedOut() {
-    return this.checkedOut;
-  }
-
   returnGame() {
-    this.checkedOut = false;
-  }
-
-  isDamaged() {
-    return this.damaged;
-  }
-
-  recordDamage() {
-    this.damaged = true;
-  }
-
-  repair() {
-    this.damaged = false;
+    super.returnGood();
   }
 }
-
 module.exports = { VideoGame };
