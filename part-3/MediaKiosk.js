@@ -1,8 +1,12 @@
-class MediaKiosk {
+const { Library } = require('./Library.js')
+
+class MediaKiosk extends Library {
   constructor(options = {}) {
-    this.name = options.name;
-    this.location = options.location;
-    this.items = options.items;
+    super({
+      name: options.name,
+      location: options.location,
+      items: options.items
+    });
   }
 
   isDamaged() {
@@ -17,26 +21,6 @@ class MediaKiosk {
     this.damaged = false;
   }
 
-  addItem(item) {
-    return this.items.push(item);
-  }
-
-  removeItem(item) {
-    const index = this.items.indexOf(item);
-
-    if (index > -1) {
-      return this.items.splice(index, 1);
-    }
-    return [];
-  }
-
-  availableItems() {
-    return this.items.filter((item) => item.isAvailable() && !item.isDamaged());
-  }
-
-  unavailableItems() {
-    return this.items.filter((item) => !this.availableItems().includes(item));
-  }
 }
 
 module.exports = { MediaKiosk };
