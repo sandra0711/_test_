@@ -1,3 +1,5 @@
+const {Team} = require('./Team.js');
+
 class PointsCalculator {
   constructor() {
     this.WINS = 2;
